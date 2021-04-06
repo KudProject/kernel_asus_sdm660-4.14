@@ -19,6 +19,13 @@
 #include <linux/qpnp/qpnp-revid.h>
 #include <linux/irq.h>
 #include <linux/pmic-voter.h>
+
+#ifdef CONFIG_MACH_ASUS_X00T
+#include "fg-core.h"
+#undef FG_ESR_VOTER
+#undef DEBUG_BOARD_VOTER
+#endif
+
 #include "smb-lib.h"
 #include "smb-reg.h"
 #include "battery.h"
@@ -27,7 +34,6 @@
 
 #ifdef CONFIG_MACH_ASUS_X00T
 #include <linux/switch.h>
-#include "fg-core.h"
 #include <linux/gpio.h>
 #include <linux/alarmtimer.h>
 #include <linux/pm_wakeup.h>
